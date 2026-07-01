@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futsal Maestro Pitágoras II</title>
+  <meta name="description" content="Sistema inteligente de gestión y análisis de rendimiento en futsal escolar de la Unidad Educativa Maestro Pitágoras II." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="logo.png" alt="Logo Maestro Pitágoras II" class="brand-logo" />
+      <div>
+        <p class="eyebrow">Unidad Educativa Técnico Humanístico</p>
+        <h1>Maestro Pitágoras II</h1>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Menú principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#marcador">Marcador</a>
+      <a href="#tabla">Tabla</a>
+      <a href="#equipos">Equipos</a>
+      <a href="#estadisticas">Estadísticas</a>
+      <a href="#proyecto">Proyecto</a>
+      <a href="#admin" class="admin-link">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero section-pad">
+      <div class="hero-content">
+        <p class="pill">Proyecto Productivo · Sistemas Informáticos · 2026</p>
+        <h2>Sistema Inteligente de Gestión y Análisis de Rendimiento en Futsal</h2>
+        <p class="lead">Plataforma digital para registrar campeonatos escolares, publicar resultados, controlar tarjetas, organizar jugadores y generar estadísticas deportivas de forma clara.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#marcador">Ver marcador</a>
+          <a class="btn secondary" href="#admin">Ingresar al panel</a>
+        </div>
+        <div class="project-mini">
+          <span><strong>Postulantes:</strong> Elmer Esteban Arancibia Urquizu y Carlos Daniel Guerra Tarifa</span>
+          <span><strong>Docente:</strong> Prof. Elías Puma Grimaldes</span>
+          <span><strong>Ubicación:</strong> La Guardia, Santa Cruz – Bolivia</span>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Resumen institucional">
+        <img src="logo.png" alt="Escudo Maestro Pitágoras II" />
+        <h3>Campeonato de Futsal Escolar</h3>
+        <p>Resultados, tarjetas, goleadores, equipos y fichas de jugadores en una sola página.</p>
+      </div>
+    </section>
+
+    <section class="section-pad compact">
+      <div class="summary-grid" id="summaryCards"></div>
+    </section>
+
+    <section id="marcador" class="section-pad">
+      <div class="section-title">
+        <p class="eyebrow">Partidos</p>
+        <h2>Marcador y resultados</h2>
+        <p>Control de quién va ganando, quién va perdiendo, partidos programados y resultados finales.</p>
+      </div>
+      <div id="scoreboard" class="scoreboard-grid"></div>
+    </section>
+
+    <section id="tabla" class="section-pad alt">
+      <div class="section-title">
+        <p class="eyebrow">Rendimiento</p>
+        <h2>Tabla de posiciones</h2>
+        <p>La tabla se calcula automáticamente con partidos finalizados.</p>
+      </div>
+      <div class="table-card">
+        <div class="responsive-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Pos.</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody id="standingsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipos" class="section-pad">
+      <div class="section-title">
+        <p class="eyebrow">Planteles</p>
+        <h2>Equipos y jugadores</h2>
+        <p>Lista pública de jugadores con datos deportivos. La ficha completa queda para el panel administrativo.</p>
+      </div>
+      <div id="teamsRoster" class="team-grid"></div>
+    </section>
+
+    <section id="estadisticas" class="section-pad alt">
+      <div class="section-title">
+        <p class="eyebrow">Análisis</p>
+        <h2>Estadísticas del campeonato</h2>
+        <p>Goleadores, tarjetas amarillas, tarjetas rojas y resumen disciplinario.</p>
+      </div>
+      <div class="stats-layout">
+        <div class="table-card">
+          <h3>Goleadores</h3>
+          <div class="responsive-table">
+            <table>
+              <thead><tr><th>Jugador</th><th>Equipo</th><th>Goles</th></tr></thead>
+              <tbody id="scorersBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="table-card">
+          <h3>Tarjetas</h3>
+          <div class="responsive-table">
+            <table>
+              <thead><tr><th>Jugador</th><th>Equipo</th><th>Amarillas</th><th>Rojas</th></tr></thead>
+              <tbody id="cardsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="disciplineFeed" class="event-feed"></div>
+    </section>
+
+    <section id="proyecto" class="section-pad">
+      <div class="section-title">
+        <p class="eyebrow">Base del proyecto</p>
+        <h2>Descripción académica</h2>
+        <p>Contenido adaptado al sistema web del campeonato de futsal.</p>
+      </div>
+      <div class="project-grid">
+        <article class="info-card">
+          <h3>Problema identificado</h3>
+          <p>El registro manual en cuadernos dificulta la organización, el acceso rápido y el análisis de resultados, goles y estadísticas del campeonato.</p>
+        </article>
+        <article class="info-card">
+          <h3>Objetivo general</h3>
+          <p>Desarrollar una plataforma digital para gestionar, organizar y analizar la información de campeonatos de futsal en la unidad educativa.</p>
+        </article>
+        <article class="info-card">
+          <h3>Necesidades</h3>
+          <ul>
+            <li>Registrar equipos, jugadores, partidos y resultados.</li>
+            <li>Publicar tabla de posiciones y estadísticas automáticas.</li>
+            <li>Reducir errores del registro manual.</li>
+            <li>Facilitar el acceso ordenado a la información deportiva.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h3>Resultados esperados</h3>
+          <ul>
+            <li>Sistema funcional para campeonatos de futsal.</li>
+            <li>Información organizada y fácil de consultar.</li>
+            <li>Mejor administración de los eventos deportivos.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="admin" class="section-pad alt">
+      <div class="section-title">
+        <p class="eyebrow">Acceso privado</p>
+        <h2>Panel administrador</h2>
+        <p>Ingrese con el usuario y contraseña definidos para editar datos, resultados y tarjetas.</p>
+      </div>
+      <div id="adminArea"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Maestro Pitágoras II</strong> · Sistema de Gestión de Futsal Escolar · <span id="lastUpdated">Actualizado</span></p>
+    <p class="small">Para publicación real en GitHub Pages, exporte el archivo datos.js desde el panel y reemplácelo en el repositorio.</p>
+  </footer>
+
+  <script src="datos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
