@@ -664,14 +664,24 @@ function clearForm(form) {
   if (form.elements.id) form.elements.id.value = "";
 }
 
-function handleLogin(form) {
+async function handleLogin(form) {
   const data = formToObject(form);
-  if (data.user === ADMIN_USER && data.pass === ADMIN_PASS) {
+
+  try {
+    const { signInWithEmailAndPassword } = window.firebaseTools;
+
+    await signInWithEmailAndPassword(
+      window.firebaseAuth,
+      data.user,
+      data.pass
+    );
+
     logged = true;
     sessionStorage.setItem(SESSION_KEY, "true");
     renderAll();
-  } else {
-    alert("Usuario o contraseña incorrectos.");
+  } catch (error) {
+    console.error("Error de inicio de sesión:", error);
+    alert("No se pudo iniciar sesión. Verifica tu correo y contraseña de Firebase.");
   }
 }
 
