@@ -187,6 +187,8 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
   import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
   import { getAuth } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+  import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyB8b6ChpqiPAFT6BZ-ZZBtmFjjmxNYt0-c",
@@ -204,11 +206,15 @@
 
 window.firebaseDB = db;
 window.firebaseAuth = auth;
-
-  window.firebaseDB = db;
+  window.firebaseTools = {
+  doc,
+  getDoc,
+  setDoc,
+  signInWithEmailAndPassword
+};
+  await import("./app.js");
+  
 </script>
-
-<script src="app.js"></script>
 
 </body>
 </html>
