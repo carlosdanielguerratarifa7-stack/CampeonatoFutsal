@@ -23,13 +23,15 @@ let logged = sessionStorage.getItem(SESSION_KEY) === "true";
 
 function loadData() {
   const stored = localStorage.getItem(DATA_KEY);
+
   if (stored) {
     try {
       return normalizeSeed(JSON.parse(stored));
     } catch (error) {
-      console.warn("No se pudo cargar localStorage. Se usará datos.js", error);
+      console.warn("Error al cargar datos locales:", error);
     }
   }
+
   return normalizeSeed(window.FUTSAL_DATA);
 }
 
