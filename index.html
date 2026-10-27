@@ -180,7 +180,30 @@
     <p class="small">Para publicación real en GitHub Pages, exporte el archivo datos.js desde el panel y reemplácelo en el repositorio.</p>
   </footer>
 
-  <script src="datos.js"></script>
-  <script src="app.js"></script>
+
+<script src="datos.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB8b6ChpqiPAFT6BZ-ZZBtmFjjmxNYt0-c",
+    authDomain: "campeonatodefutsal-49537.firebaseapp.com",
+    projectId: "campeonatodefutsal-49537",
+    storageBucket: "campeonatodefutsal-49537.firebasestorage.app",
+    messagingSenderId: "47499475788",
+    appId: "1:47499475788:web:768f7efdb2c0fff77eede9",
+    measurementId: "G-L9TDF4H91Z"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.firebaseDB = db;
+</script>
+
+<script src="app.js"></script>
+
 </body>
 </html>
