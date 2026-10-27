@@ -38,6 +38,17 @@ function saveData() {
   localStorage.setItem(DATA_KEY, JSON.stringify(state));
   renderAll();
 }
+ try {
+    const { doc, setDoc } = window.firebaseTools;
+    const ref = doc(window.firebaseDB, "campeonato", "principal");
+
+    await setDoc(ref, state);
+    console.log("Datos guardados en Firebase");
+  } catch (error) {
+    console.error("Error al guardar en Firebase:", error);
+    alert("No se pudieron guardar los datos en Firebase.");
+  }
+}
 
 function teamById(id) {
   return state.teams.find((team) => team.id === id);
