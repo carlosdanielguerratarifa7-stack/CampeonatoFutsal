@@ -951,4 +951,34 @@ document.addEventListener("change", (event) => {
   if (event.target.id === "importFile") importJson(event.target.files[0]);
 });
 
+async function loadRemoteData() {
+  try {
+    const { doc, getDoc } = window.firebaseTools;
+    const ref = doc(window.firebaseDB, "campeonato", "principal");
+    const snapshot = await getDoc(ref);
+
+    if (!snapshot.exists()) return;
+
+    const data = snapshot.data();
+
+    if (
+      !Array.isArray(data.teams) ||
+      !Array.isArray(data.players) ||
+      !Array.isArray(data.matches) ||
+      !Array.isArray(data.events)
+    ) {
+      return;
+    }
+
+    state = normalizeSeed(data);
+    localStorage.setItem(DATA_KEY, JSON.stringify(state));
+    renderAll();
+
+    console.log("Datos cargados desde Firebase");
+  } catch (error) {
+    console.error("Error al cargar datos de Firebase:", error);
+  }
+}
+
 renderAll();
+loadRemoteData();
