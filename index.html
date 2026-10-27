@@ -186,6 +186,7 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
   import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyB8b6ChpqiPAFT6BZ-ZZBtmFjjmxNYt0-c",
@@ -199,6 +200,10 @@
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
+  const auth = getAuth(app);
+
+window.firebaseDB = db;
+window.firebaseAuth = auth;
 
   window.firebaseDB = db;
 </script>
