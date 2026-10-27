@@ -33,15 +33,14 @@ function loadData() {
   return normalizeSeed(window.FUTSAL_DATA);
 }
 
-function saveData() {
+async function saveData() {
   state.meta.updatedAt = new Date().toISOString();
   localStorage.setItem(DATA_KEY, JSON.stringify(state));
   renderAll();
-}
- try {
+
+  try {
     const { doc, setDoc } = window.firebaseTools;
     const ref = doc(window.firebaseDB, "campeonato", "principal");
-
     await setDoc(ref, state);
     console.log("Datos guardados en Firebase");
   } catch (error) {
